@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Hi-Cmis</title>
+  <link rel="shortcut icon" href="favicon.ico" />
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <a href="./adminIndex.html" title="主页"><div class="layui-logo">学生信息管理系统</div></a>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;" id="stuName">
+          <img src="./images/headlogo/admin.png" class="layui-nav-img">
+
+            {{username}}
+          
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="./adminSetting.html">基本资料</a></dd>
+          <dd><a href="./adminSetting.html">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="./login.html">退出</a></li>
+    </ul>
+  </div>
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item">
+          <a class="" href="./adminSendNotice.html">发送通知</a>
+        </li>
+        <li class="layui-nav-item">
+          <a class="" href="./adminViewNotice.html">查看通知</a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="./adminViewNumbers.html">查看班级成员</a>
+        </li>
+        <li class="layui-nav-item"><a href="./adminSetting.html">个人设置</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+      <div align="center">
+        <article class="card">
+  <header class="card__thumb">
+    <a href="#"><img src="images/timg.jpg"/></a>
+  </header>
+  <date class="card__date">
+    <img src="./images/CMIS.png">
+  </date>
+ 
+  <div class="card__body">
+    <div class="card__category"><a href="#">about</a></div>
+    <h2 class="card__title"><a href="#">Hi-CMIS</a></h2>
+    <div class="card__subtitle">专注提供班级通知服务</div>
+    <p class="card__description">Hi-Cmis是一款以班级为单位专注班委与学生间通知下发传达的Web产品，解决Wechat、QQ等社交工具发布通知产生延迟、漏达、不纯粹的问题。<br>成员介绍:&nbsp;产品经理:谭维予&nbsp;数据库架构:王永浩&nbsp;后台:孙裕&nbsp;前端:徐可&nbsp;</p>
+  </div>
+</article>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    &copy; Hi-Cmis
+  </div>
+</div>
+<script src="./js/vue.js"></script>
+<script src="./js/loginInfo.js"></script>
+<script src="./js/updateInfo.js"></script>
+<script src="./js/layui/layui.js"></script>
+<script>
+  getNumbers();
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+</script>
+</body>
+</html>

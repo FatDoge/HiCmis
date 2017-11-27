@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hi-Cmis</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="./js/layui/css/layui.css">
+  <script src="./js/layer/layer.js"></script>
+	<script src="./js/loginInfo.js"></script>
+	<script src="./js/selectStudents.js"></script>
+</head>
+<body>
+<div align="center">
+	<table id="stuNumbers"></table>
+	<button class="layui-btn" onclick="getCheckData()">获取选中行数据</button>
+</div>
+<script src="./js/layui/layui.js"></script>
+<script>
+getNumbers();
+initList();
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+
+});
+
+layui.use('table', function(){
+  var table = layui.table;
+  getNumbers();
+  var data=JSON.parse(localStorage.getItem("studentList"));
+  console.log(data);
+var url='http://182.254.220.141:88/Public/message/?service=Cmis.GetClassMembers&id='+getClass();
+console.log(url);
+  table.render({
+    elem: '#stuNumbers'
+    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+    ,cols: [[
+      {type:'checkbox',width:'8%'}
+      ,{field:'student_id', width:'46%', title: 'ID', sort: true,align:"center"}
+      ,{field:'name', width:'46%', title: '姓名',align:"center"}
+    ]]
+    ,data:data
+    ,id:"stuNumbers"
+  });
+});
+</script>
+</body>
+</html>
