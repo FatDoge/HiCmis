@@ -12,8 +12,13 @@ body{
 .form-horizontal{
     background: #fff;
     padding-bottom: 40px;
-    border-radius: 15px;
+    border-radius: 5px;
     text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.form-horizontal:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .form-horizontal .heading{
     display: block;
@@ -69,11 +74,11 @@ body{
     float: left;
     width: 20px;
     height: 20px;
-    background: #11a3fc;
+    background: #009688;
     border-radius: 50%;
     position: relative;
     margin: 5px 0 0 5px;
-    border: 1px solid #11a3fc;
+    border: 1px solid #009688;
 }
 .form-horizontal .main-checkbox label{
     width: 20px;
@@ -115,7 +120,7 @@ body{
     float: right;
     font-size: 14px;
     color: #fff;
-    background: #00b4ef;
+    background: #009688;
     border-radius: 30px;
     padding: 10px 25px;
     border: none;
@@ -137,4 +142,15 @@ body{
 .row{
     position: relative;
     margin-top: 10%;
+}
+/* footer */
+footer{
+    color:#fff;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+    padding: 5px;
+    font-size: 12px;
 }
