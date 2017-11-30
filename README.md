@@ -9,6 +9,7 @@
 #### 库:
 - Bootstrap 
 - jQuery
+- Layui
 #### 框架:
 - Vue
 #### iconfont:
@@ -18,8 +19,8 @@
 #### 插件:
 - Layer
 #### 样式参考:
-- Clint Brown
-- Codepen
+- hongxingss
+- Codepen(MD design box shadow)
 #### 主配色:
 #23262E #009688
 #### 感谢:
