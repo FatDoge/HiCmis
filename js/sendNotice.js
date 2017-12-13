@@ -5,7 +5,10 @@ function commitNotice(){
 	var content=$("#noticeContent").val();
 	var sender=localStorage.getItem("stuName");
 	if(!title.trim()||!content.trim()){
-		alert("标题或正文未填写完整");
+		layui.use('layer', function(){
+			var layer = layui.layer;
+			layer.msg('标题或正文未填写完整');
+		  });
 		return false;
 	}
 	//默认发向全体
@@ -23,7 +26,10 @@ function commitNotice(){
 				if(data.ret!=200){
 					alert(data.msg);
 				}else{
-					alert("提交成功！");
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('提交成功');
+					  });
 					console.log(data.data);
 					return data.data;
 				}
@@ -45,9 +51,15 @@ function commitNotice(){
 			},function(data){
 				// ret判断
 				if(data.ret!=200){
-					alert(data.msg);
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg(data.msg);
+					  });
 				}else{
-					alert("提交成功！");
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('提交成功！');
+					  });
 					console.log(data.data);
 					return data.data;
 				}

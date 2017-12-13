@@ -23,13 +23,19 @@ function commitInfo(){
 				if(data.ret!=200){
 					alert(data.msg);
 				}else{
-					alert("更改成功！");
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('更改成功');
+					  });
 					console.log(data.data);
 					return data.data;
 				}
 	  });
 		}else{
-			alert("不符合密码修改要求");
+			layui.use('layer', function(){
+				var layer = layui.layer;
+				layer.msg('不符合密码修改要求');
+			  });
 		}
 	}
 	//更改职位
@@ -45,7 +51,10 @@ function commitInfo(){
 				if(data.ret!=200){
 					alert(data.msg);
 				}else{
-					alert("更改成功！");
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('更改成功');
+					  });
 					console.log(data.data);
 					return data.data;
 				}
@@ -66,7 +75,10 @@ function commitInfo(){
 		judgeChangePwd();
 		break;
 		default:
-		alert("职位不符合要求");
+		layui.use('layer', function(){
+			var layer = layui.layer;
+			layer.msg('职位不符合要求');
+		  });
 		judgeChangePwd();
 		break;
 

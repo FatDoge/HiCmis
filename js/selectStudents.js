@@ -14,7 +14,7 @@ function initList(){
 
 function getCheckData(){ //获取选中数据
 	var table = layui.table;
-    	console.log("获取选中数据");
+    	layer.msg("获取选中数据");
       var checkStatus = table.checkStatus('stuNumbers')
       ,data = checkStatus.data;
       localStorage.setItem("sendItem",JSON.stringify(data));

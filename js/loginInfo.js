@@ -2,8 +2,11 @@ var stuId;
 var stuPwd;
 //登录判断
 function login(){
-	stuId=$("#stuId").val();
+	stuId=$("#stuId").val().trim();
 	stuPwd=$("#stuPwd").val();
+	if(stuId===''||stuPwd===''){
+		layer.msg('账户名或密码为空!');
+	}else{
 	console.log("学号:"+stuId);
 	console.log("密码:"+stuPwd);
 	// 登录
@@ -17,13 +20,14 @@ function login(){
 		},function(data){
 			// ret判断
 			if(data.ret!=200){
-				console.log(data.msg);
+				layer.msg(data.msg);
 			}else{
 				//插入数据并跳转
 				insertInfo();
 				getNumbers();
 			}
   });
+}
 }
 //跳转
 function jump(power){
@@ -59,7 +63,7 @@ function insertInfo(){
 		},function(data){
 			// ret判断
 			if(data.ret!=200){
-				console.log(data.msg);
+				layer.msg(data.msg);
 			}else{
 				console.log(data);
 				//将用户详细信息插入localStorage
