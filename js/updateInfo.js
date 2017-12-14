@@ -46,11 +46,17 @@ function judgeUserPower(){
 		var userPower=power;
 		console.log("当前用户权限"+userPower);
 		if(userPower==="1"){
-			alert("权限错误，将返回对应主页。");
+			layui.use('layer', function(){
+				var layer = layui.layer;
+				layer.msg('权限错误，将返回对应主页。');
+			  });
 			window.location="./adminIndex.html";
 		}else if(userPower===-1){
-			alert("登录失效，请重新登录！");
-			window.location="./login.html";
+			layui.use('layer', function(){
+				var layer = layui.layer;
+				layer.msg('登录失效，请重新登录！');
+			  });
+			window.location="./index.html";
 		}
 			})
 	// userPower:0,string
@@ -78,11 +84,17 @@ function judgeAdminPower(){
 		var adminPower=power;
 		console.log("当前用户权限"+adminPower);
 		if(adminPower==="0"){
-			alert("权限错误，将返回对应主页。");
+			layui.use('layer', function(){
+				var layer = layui.layer;
+				layer.msg('权限错误，将返回对应主页。');
+			  });
 			window.location="./stuIndex.html";
 		}else if(adminPower===-1){
-			alert("登录失效，请重新登录！");
-			window.location="./login.html";
+			layui.use('layer', function(){
+				var layer = layui.layer;
+				layer.msg('登录失效，请重新登录！');
+			  });
+			window.location="./index.html";
 		}
 		console.log("权限"+adminPower);
 		})
