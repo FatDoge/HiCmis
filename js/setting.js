@@ -9,7 +9,7 @@ function commitInfo(){
 	var id=localStorage.getItem("stuId");
 	//判断密码状态并在符合要求时修改
 	function judgeChangePwd(){
-		if(oldPwd&&newPwd1&&newPwd2&&newPwd1==newPwd2){
+		if(oldPwd&&newPwd1&&newPwd2&&newPwd1===newPwd2&&oldPwd!==newPwd1){
 			console.log("符合更改密码要求");
 			$.post("http://182.254.220.141:88/Public/message/",
 			{
@@ -21,20 +21,33 @@ function commitInfo(){
 			},function(data){
 				// ret判断
 				if(data.ret!=200){
-					alert(data.msg);
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg("密码"+data.msg);
+						});
 				}else{
 					layui.use('layer', function(){
 						var layer = layui.layer;
-						layer.msg('更改成功');
+						layer.msg('密码更改成功');
 					  });
 					console.log(data.data);
 					return data.data;
 				}
 	  });
-		}else{
+		}else if(oldPwd===''&&newPwd1===''&&newPwd2===''&&power===''){
+			layui.use('layer', function(){
+				var layer = layui.layer;
+				layer.msg('未修改');
+			  });
+		}else if(newPwd1!==newPwd2||newPwd1===''&&newPwd2===''||oldPwd===''){
 			layui.use('layer', function(){
 				var layer = layui.layer;
 				layer.msg('不符合密码修改要求');
+			  });
+		}else if(oldPwd===newPwd1||oldPwd===newPwd2){
+			layui.use('layer', function(){
+				var layer = layui.layer;
+				layer.msg('新密码与原密码不能相同！');
 			  });
 		}
 	}
@@ -49,11 +62,14 @@ function commitInfo(){
 			},function(data){
 				// ret判断
 				if(data.ret!=200){
-					alert(data.msg);
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg("职位"+data.msg);
+						});
 				}else{
 					layui.use('layer', function(){
 						var layer = layui.layer;
-						layer.msg('更改成功');
+						layer.msg('职位更改成功');
 					  });
 					console.log(data.data);
 					return data.data;
@@ -77,7 +93,7 @@ function commitInfo(){
 		default:
 		layui.use('layer', function(){
 			var layer = layui.layer;
-			layer.msg('职位不符合要求');
+			layer.msg('请输入0(普通)或1(管理)');
 		  });
 		judgeChangePwd();
 		break;
